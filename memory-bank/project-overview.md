@@ -1,19 +1,19 @@
-# Project Overview
+# Resumen del Proyecto
 
-## Goal
-Financial metrics dashboard with:
+## Objetivo
+Dashboard de metricas financieras con:
 - Frontend: React + TypeScript + Vite + Recharts
-- Backend: FastAPI returning deterministic mock financial movements
+- Backend: FastAPI que entrega movimientos financieros mock deterministas
 
-## Current product behavior (verified)
-- Dashboard fetches /api/metrics from frontend/src/App.tsx.
-- KPI values are calculated client-side in frontend/src/lib/financial-utils.ts.
-- Monthly chart data is aggregated client-side in frontend/src/lib/financial-utils.ts.
-- Backend data source is generated mock data with seed=42 in backend/app/routes.py.
+## Comportamiento actual del producto (verificado)
+- El dashboard consume /api/metrics desde frontend/src/App.tsx.
+- Los valores KPI se calculan del lado cliente en frontend/src/lib/financial-utils.ts.
+- Los datos mensuales de graficos se agregan del lado cliente en frontend/src/lib/financial-utils.ts.
+- La fuente de datos backend es mock generada con seed=42 en backend/app/routes.py.
 
-## Runtime
-- docker compose starts frontend (5173) and backend (8000).
-- Vite proxies /api to backend container via frontend/vite.config.ts.
+## Ejecucion
+- docker compose inicia frontend (5173) y backend (8000).
+- Vite hace proxy de /api al contenedor backend via frontend/vite.config.ts.
 
-## Key risk
-- Contract drift risk: frontend currently consumes /api/metrics only, while backend exposes more analytics endpoints that are not yet consumed by App.
+## Riesgo clave
+- Riesgo de deriva de contrato: el frontend hoy consume solo /api/metrics, mientras backend expone mas endpoints analiticos aun no consumidos por App.

@@ -1,55 +1,55 @@
-# Phase 2 - Engineering practices review
+# Fase 2 - Revision de Practicas de Ingenieria
 
-## Scope
-Code-level review of frontend and backend to identify at least 5 good practices and 5 risks/bad practices, grouped by category.
+## Alcance
+Revision a nivel de codigo de frontend y backend para identificar al menos 5 buenas practicas y 5 riesgos/malas practicas, agrupadas por categoria.
 
-## Good practices
+## Buenas practicas
 
-### Architecture
-1. Clear layering in backend routes and helper functions keeps endpoint handlers concise.
-   - Evidence: backend/app/routes.py
-2. Frontend separates UI components from data transformation utilities.
-   - Evidence: frontend/src/components/dashboard/* and frontend/src/lib/financial-utils.ts
+### Arquitectura
+1. Capas claras en rutas backend y funciones helper mantienen handlers concisos.
+   - Evidencia: backend/app/routes.py
+2. Frontend separa componentes UI de utilidades de transformacion de datos.
+   - Evidencia: frontend/src/components/dashboard/* y frontend/src/lib/financial-utils.ts
 
-### Contracts and typing
-3. Backend endpoints use explicit response models, reducing contract ambiguity.
-   - Evidence: backend/app/routes.py
-4. Frontend uses typed domain models for movements and KPI payloads.
-   - Evidence: frontend/src/lib/financial-types.ts, frontend/src/App.tsx
+### Contratos y tipado
+3. Endpoints backend usan response models explicitos, reduciendo ambiguedad de contrato.
+   - Evidencia: backend/app/routes.py
+4. Frontend usa modelos de dominio tipados para movimientos y payloads KPI.
+   - Evidencia: frontend/src/lib/financial-types.ts, frontend/src/App.tsx
 
-### Testing and reliability
-5. Deterministic data generation with seed=42 improves reproducibility.
-   - Evidence: backend/app/routes.py
-6. Test suites exist on both sides (backend endpoint behavior and frontend utility calculations).
-   - Evidence: backend/tests/test_routes.py, frontend/src/lib/financial-utils.test.ts
+### Testing y confiabilidad
+5. Generacion de datos determinista con seed=42 mejora reproducibilidad.
+   - Evidencia: backend/app/routes.py
+6. Existen suites de pruebas en ambos lados (comportamiento de endpoints backend y calculos de utilidades frontend).
+   - Evidencia: backend/tests/test_routes.py, frontend/src/lib/financial-utils.test.ts
 
-### Dev experience
-7. Docker compose and Vite proxy simplify local integration.
-   - Evidence: docker-compose.yml, frontend/vite.config.ts
+### Experiencia de desarrollo
+7. Docker compose y proxy de Vite simplifican integracion local.
+   - Evidencia: docker-compose.yml, frontend/vite.config.ts
 
-## Risks and bad practices
+## Riesgos y malas practicas
 
-### Security and deploy readiness
-1. CORS is fully open, which is risky outside controlled environments.
-   - Evidence: backend/app/main.py
-2. Backend serves synthetic data only; no persistence or real datasource boundary is defined.
-   - Evidence: backend/app/routes.py
+### Seguridad y preparacion de despliegue
+1. CORS esta totalmente abierto, lo cual es riesgoso fuera de entornos controlados.
+   - Evidencia: backend/app/main.py
+2. Backend sirve solo datos sinteticos; no hay frontera de persistencia ni datasource real definida.
+   - Evidencia: backend/app/routes.py
 
-### Product and consistency
-3. UI language is mixed (Spanish error text with mostly English labels), reducing copy consistency.
-   - Evidence: frontend/src/App.tsx, frontend/src/components/dashboard/kpi-row.tsx
-4. KPI calculations happen in frontend while backend already has analytics endpoints, creating potential source-of-truth drift.
-   - Evidence: frontend/src/lib/financial-utils.ts, backend/app/routes.py
+### Producto y consistencia
+3. El idioma de UI esta mezclado (error en espanol y etiquetas mayormente en ingles), reduciendo consistencia de copy.
+   - Evidencia: frontend/src/App.tsx, frontend/src/components/dashboard/kpi-row.tsx
+4. Los calculos KPI ocurren en frontend mientras backend ya expone endpoints analiticos, generando posible deriva de fuente de verdad.
+   - Evidencia: frontend/src/lib/financial-utils.ts, backend/app/routes.py
 
-### Testing and quality gates
-5. No CI workflow detected to enforce tests/lint on push or PR.
-   - Evidence: no files under .github/workflows
-6. Current frontend tests cover utility layer but not component rendering/integration behavior.
-   - Evidence: frontend/src/lib/financial-utils.test.ts
+### Testing y quality gates
+5. No se detecta workflow CI para forzar tests/lint en push o PR.
+   - Evidencia: no hay archivos bajo .github/workflows
+6. Las pruebas frontend actuales cubren capa de utilidades, pero no renderizado/integracion de componentes.
+   - Evidencia: frontend/src/lib/financial-utils.test.ts
 
-## Recommended mitigation priorities
-1. Define a source-of-truth policy for KPI and summary formulas (frontend vs backend).
-2. Add environment-based CORS policy and document production-safe defaults.
-3. Add CI checks for backend tests, frontend tests, and lint.
-4. Add at least one integration-level frontend test for App data-loading state and error state.
-5. Standardize product copy language in the dashboard UI.
+## Prioridades recomendadas de mitigacion
+1. Definir politica de fuente de verdad para formulas KPI y resumenes (frontend vs backend).
+2. Agregar politica CORS por entorno y documentar defaults seguros para produccion.
+3. Agregar checks CI para pruebas backend, pruebas frontend y lint.
+4. Agregar al menos una prueba frontend de integracion para estado de carga y estado de error de App.
+5. Estandarizar idioma del copy de producto en la UI del dashboard.

@@ -1,36 +1,36 @@
-# Phase 1 - Handover validation
+# Fase 1 - Validacion del Handover
 
-## Objective
-Validate the AI-generated project summary against real repository structure and source code.
+## Objetivo
+Validar el resumen del proyecto generado por IA contra la estructura real del repositorio y el codigo fuente.
 
-## Evidence reviewed
-- Repository structure and runtime:
+## Evidencia revisada
+- Estructura del repositorio y ejecucion:
   - README.md
   - README.es.md
   - docker-compose.yml
-- Backend entry points and API surface:
+- Puntos de entrada backend y superficie API:
   - backend/app/main.py
   - backend/app/routes.py
-- Frontend data flow and rendering:
+- Flujo de datos frontend y renderizado:
   - frontend/src/App.tsx
   - frontend/src/lib/financial-utils.ts
   - frontend/src/components/dashboard/*
-- Existing tests:
+- Pruebas existentes:
   - backend/tests/test_routes.py
   - frontend/src/lib/financial-utils.test.ts
 
-## Validated statements
-1. Project is a frontend/backend dashboard stack using React+TypeScript and FastAPI.
-2. Main dashboard currently consumes /api/metrics and computes KPIs client-side.
-3. Backend exposes additional analytics endpoints (summary, comparison, alerts, facets, top categories, b2b, b2c).
-4. Local execution model is docker compose with frontend on 5173 and backend on 8000.
-5. Basic test coverage exists in both backend and frontend utility layer.
+## Afirmaciones validadas
+1. El proyecto es un dashboard frontend/backend con React+TypeScript y FastAPI.
+2. El dashboard principal consume /api/metrics y calcula KPIs en cliente.
+3. Backend expone endpoints analiticos adicionales (summary, comparison, alerts, facets, top categories, b2b, b2c).
+4. El modelo de ejecucion local es docker compose con frontend en 5173 y backend en 8000.
+5. Existe cobertura basica de pruebas en backend y en capa de utilidades frontend.
 
-## Corrections applied to avoid assumptions
-- Product semantics are not inferred beyond what code and tests prove.
-- Unknown business requirements are tracked as gaps, not assumptions.
+## Correcciones aplicadas para evitar suposiciones
+- La semantica de producto no se infiere mas alla de lo que prueban codigo y tests.
+- Requisitos de negocio desconocidos se registran como brechas, no como supuestos.
 
-## Output generated from this phase
+## Salidas generadas de esta fase
 - memory-bank/project-overview.md
 - memory-bank/architecture-map.md
 - memory-bank/operations-runbook.md

@@ -1,28 +1,28 @@
-# Operations Runbook
+# Runbook Operativo
 
-## Local start
-- Command: docker compose up --build
+## Inicio local
+- Comando: docker compose up --build
 - Frontend: http://localhost:5173
 - Backend: http://localhost:8000
-- API docs: http://localhost:8000/docs
+- Documentacion API: http://localhost:8000/docs
 
-## Backend-only development
-- Install deps from backend/requirements.txt
-- Run server with uvicorn app.main:app --reload
-- Optional debugpy is already configured in Dockerfile
+## Desarrollo solo backend
+- Instalar dependencias desde backend/requirements.txt
+- Ejecutar servidor con uvicorn app.main:app --reload
+- debugpy opcional ya configurado en Dockerfile
 
-## Frontend-only development
-- npm install in frontend
+## Desarrollo solo frontend
+- npm install en frontend
 - npm run dev
-- Uses Vite proxy for /api to http://backend:8000 in container networking
+- Usa proxy de Vite para /api hacia http://backend:8000 en red de contenedores
 
-## Test commands
-- Backend: pytest (inside backend)
-- Frontend: npm run test (inside frontend)
+## Comandos de prueba
+- Backend: pytest (dentro de backend)
+- Frontend: npm run test (dentro de frontend)
 
-## Quick smoke checklist
-1. /health returns {"status":"ok"}
-2. /api/metrics returns records sorted by create_date
-3. Dashboard loads without fetch error
-4. KPI cards show values
-5. Both charts render with monthly points
+## Checklist smoke rapido
+1. /health responde {"status":"ok"}
+2. /api/metrics retorna registros ordenados por create_date
+3. El dashboard carga sin error de fetch
+4. Las tarjetas KPI muestran valores
+5. Ambos graficos renderizan puntos mensuales

@@ -1,26 +1,26 @@
-# Rule: Evidence First
+# Regla: Evidencia Primero
 
-## Purpose
-Avoid assumptions and document behavior only from verified code paths.
+## Proposito
+Evitar suposiciones y documentar comportamiento solo desde rutas de codigo verificadas.
 
-## Required workflow
-1. Identify the source file(s) that implement the behavior.
-2. Read the exact functions/endpoints/components involved.
-3. Capture findings as facts with file references.
-4. Mark anything not found in code as unknown.
+## Flujo requerido
+1. Identificar los archivos fuente que implementan el comportamiento.
+2. Leer las funciones/endpoints/componentes exactos involucrados.
+3. Registrar hallazgos como hechos con referencias de archivo.
+4. Marcar como desconocido todo lo que no este en el codigo.
 
-## Allowed statements
-- "Implemented in backend/app/routes.py"
-- "Consumed in frontend/src/App.tsx"
-- "Covered by tests in backend/tests/test_routes.py"
+## Afirmaciones permitidas
+- "Implementado en backend/app/routes.py"
+- "Consumido en frontend/src/App.tsx"
+- "Cubierto por pruebas en backend/tests/test_routes.py"
 
-## Forbidden statements
-- Product behavior not backed by source code.
-- "Probably" explanations without verification.
-- Documentation copied from memory when code changed.
+## Afirmaciones prohibidas
+- Comportamiento de producto sin respaldo en codigo fuente.
+- Explicaciones de "probablemente" sin verificacion.
+- Documentacion copiada de memoria cuando el codigo cambio.
 
-## Minimum evidence checklist
-- API endpoint definition found.
-- Frontend consumer found.
-- Data transform found.
-- At least one test reviewed (if present).
+## Checklist minimo de evidencia
+- Definicion de endpoint API encontrada.
+- Consumidor en frontend encontrado.
+- Transformacion de datos encontrada.
+- Al menos una prueba revisada (si existe).

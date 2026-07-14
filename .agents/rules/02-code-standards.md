@@ -1,23 +1,23 @@
-# Rule: Code Standards For This Repo
+# Regla: Estandares de Codigo del Repositorio
 
-## Scope
-Applies to frontend (React + TypeScript) and backend (FastAPI + Python).
+## Alcance
+Aplica a frontend (React + TypeScript) y backend (FastAPI + Python).
 
-## Frontend conventions
-- Keep API fetching in small boundary functions.
-- Keep data calculations in frontend/src/lib helpers.
-- Keep UI components mostly presentational.
-- Preserve TypeScript types from frontend/src/lib/financial-types.ts.
-- Prefer existing alias imports using @/.
+## Convenciones de frontend
+- Mantener el fetch de API en funciones pequenas de borde.
+- Mantener los calculos de datos en helpers de frontend/src/lib.
+- Mantener los componentes UI mayormente presentacionales.
+- Preservar los tipos TypeScript de frontend/src/lib/financial-types.ts.
+- Preferir los imports con alias existentes usando @/.
 
-## Backend conventions
-- Keep endpoint contracts explicit with Pydantic response_model.
-- Reuse existing filter and summarization helpers before adding new logic.
-- Keep date filtering deterministic and sorted outputs chronological.
-- Preserve literal domains for category/business/operation types.
+## Convenciones de backend
+- Mantener contratos de endpoint explicitos con response_model de Pydantic.
+- Reutilizar helpers de filtrado y resumen antes de agregar nueva logica.
+- Mantener filtrado por fecha determinista y salidas ordenadas cronologicamente.
+- Preservar dominios literales para category/business/operation types.
 
-## Cross-cutting conventions
-- Avoid changing API response shape without updating frontend usage and tests.
-- Keep seeded mock generation deterministic for reproducibility.
-- Add tests for behavior changes in both relevant layers when possible.
-- Keep docs synchronized with real endpoint paths and query params.
+## Convenciones transversales
+- Evitar cambiar el shape de respuesta API sin actualizar consumo frontend y pruebas.
+- Mantener generacion mock con semilla determinista para reproducibilidad.
+- Agregar pruebas para cambios de comportamiento en ambas capas cuando sea posible.
+- Mantener documentacion sincronizada con rutas reales y query params reales.
